@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxelCraft</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Canvas Three.js -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Curseur central -->
+    <div id="crosshair"></div>
+
+    <!-- HUD coordonnées -->
+    <div id="hud">
+        <div id="coords">X:0  Y:0  Z:0</div>
+    </div>
+
+    <!-- Barre d'inventaire -->
+    <div id="inventory"></div>
+
+    <!-- Message flash -->
+    <div id="flash-msg"></div>
+
+    <!-- Écran de pause -->
+    <div id="pause-screen">
+        <h2>⏸ Pause</h2>
+        <p>Appuie sur <strong>Échap</strong> pour reprendre</p>
+    </div>
+
+    <!-- Écran de démarrage -->
+    <div id="start-screen">
+        <h1>VoxelCraft</h1>
+        <p>Un monde de blocs à explorer</p>
+        <button id="btn-start">▶  JOUER</button>
+        <div class="controls-list">
+            <div><span>Z / W</span> — Avancer</div>
+            <div><span>S</span> — Reculer</div>
+            <div><span>Q / A</span> — Gauche</div>
+            <div><span>D</span> — Droite</div>
+            <div><span>Espace</span> — Sauter</div>
+            <div><span>Shift</span> — Sprint</div>
+            <div><span>Clic gauche</span> — Casser un bloc</div>
+            <div><span>Clic droit</span> — Poser un bloc</div>
+            <div><span>1–7 / Molette</span> — Changer de bloc</div>
+            <div><span>Échap</span> — Pause</div>
+        </div>
+    </div>
+
+    <!-- Three.js (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+    <!-- Modules du jeu (ordre important) -->
+    <script src="js/blocks.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Désactive le menu contextuel (clic droit) dans le jeu -->
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    </script>
+</body>
+</html>

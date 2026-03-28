@@ -1,0 +1,229 @@
+/* =============================================
+   VoxelCraft - Styles principaux
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+}
+
+/* Canvas Three.js */
+#game-canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Écran de démarrage */
+#start-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+#start-screen h1 {
+    font-size: 3rem;
+    color: #5a8;
+    text-shadow: 0 0 20px #5a8;
+    margin-bottom: 0.5rem;
+    letter-spacing: 4px;
+}
+
+#start-screen p {
+    color: #aaa;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+#btn-start {
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    background: #5a8a3c;
+    color: #fff;
+    border: 2px solid #7ab;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: background 0.2s;
+}
+
+#btn-start:hover {
+    background: #6aaa4c;
+}
+
+.controls-list {
+    margin-top: 2rem;
+    text-align: left;
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.controls-list span {
+    color: #adb;
+    font-weight: bold;
+}
+
+/* Curseur central */
+#crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    display: none;
+}
+
+#crosshair::before,
+#crosshair::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+#crosshair::before {
+    width: 18px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#crosshair::after {
+    width: 2px;
+    height: 18px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* HUD - Barre de vie et infos */
+#hud {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+#coords {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    background: rgba(0,0,0,0.4);
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+/* Inventaire */
+#inventory {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: row;
+    gap: 4px;
+    z-index: 10;
+}
+
+.inv-slot {
+    width: 52px;
+    height: 52px;
+    border: 2px solid #555;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.1s;
+}
+
+.inv-slot.selected {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.inv-slot .block-icon {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+}
+
+.inv-slot .slot-label {
+    font-size: 0.55rem;
+    color: #ccc;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.slot-number {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 0.6rem;
+    color: #aaa;
+}
+
+/* Pause overlay */
+#pause-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+#pause-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #eee;
+}
+
+#pause-screen p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Message flash */
+#flash-msg {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 20;
+    pointer-events: none;
+}
+
+#flash-msg.show {
+    opacity: 1;
+}
